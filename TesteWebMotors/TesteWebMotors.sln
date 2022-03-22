@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteWebMotors", "TesteWebMotors\TesteWebMotors.csproj", "{CA69BF8A-4636-4A24-A808-86CF38D06065}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteWebMotors.Dominio", "TesteWebMotors.Dominio\TesteWebMotors.Dominio.csproj", "{B5504444-4D6B-4ADC-A9C9-AF4B4B1F10A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA69BF8A-4636-4A24-A808-86CF38D06065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA69BF8A-4636-4A24-A808-86CF38D06065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA69BF8A-4636-4A24-A808-86CF38D06065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA69BF8A-4636-4A24-A808-86CF38D06065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5504444-4D6B-4ADC-A9C9-AF4B4B1F10A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5504444-4D6B-4ADC-A9C9-AF4B4B1F10A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5504444-4D6B-4ADC-A9C9-AF4B4B1F10A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5504444-4D6B-4ADC-A9C9-AF4B4B1F10A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB85A8EE-746C-4D97-ABBB-FC2F82CCF112}
+	EndGlobalSection
+EndGlobal

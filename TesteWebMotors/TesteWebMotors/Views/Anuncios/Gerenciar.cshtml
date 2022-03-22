@@ -1,0 +1,60 @@
+﻿@model List<AnuncioWeb>
+
+@{
+    ViewData["Title"] = "Início";
+}
+
+
+<div class="row">
+    <div class="col">
+        <a class="btn btn-outline-info" href="/">Voltar</a>
+        <a class="btn btn-info" href="/Anuncios/Adicionar">Adicionar anúncios</a>
+    </div>
+</div>
+
+<div class="card-group">
+    @{
+        foreach (var item in Model)
+        {
+            <div class="col-4 p-2">
+                <div class="card rounded img-fluid img-thumbnail">
+                    <div class="card-body">
+                        <h5 class="card-title">Marca: @item.Marca</h5>
+                        <p class="card-text">Modelo: @item.Modelo</p>
+                        <p class="card-text">Versão: @item.Versao</p>
+                        <p class="card-text">Ano: @item.Ano</p>
+                        <p class="card-text"><small class="text-muted">Quilometragem: @item.Quilometragem</small></p>
+                        <p class="card-text"><small class="text-muted">Observações: @item.Observacao</small></p>
+                    </div>
+
+                    <div class="container">
+                        <div class="row d-inline-flex">
+                            <form class="p-1" method="get" asp-action="Editar" asp-route-id="@item.ID">
+                                <input type="submit" class="btn btn-outline-info" value="Editar" />
+                            </form>
+                            <form class="p-1" method="post" asp-action="Deletar" asp-route-id="@item.ID">
+                                <input type="submit" class="btn btn-outline-danger" value="Excluir" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        }
+    }
+</div>
+
+<script>
+    function mostrarAsImagens(dados){
+        $("#imagens").html('');
+        dados.forEach(item => {
+            var opcao = `
+                <figure class="figure">
+                    <img style="max-width: 250px" src='${item.url}' class="figure-img img-fluid rounded" alt='Imagem com nome: ${item.id}'>
+                    <figcaption class="figure-caption">Imagem com nome: ${item.id}</figcaption>
+                </figure>
+            `;
+            $("#imagens").append(opcao);
+        });
+    }
+</script>

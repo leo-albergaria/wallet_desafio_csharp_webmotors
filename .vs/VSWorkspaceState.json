@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\TesteWebMotors",
+    "\\TesteWebMotors\\TesteWebMotors",
+    "\\TesteWebMotors\\TesteWebMotors.Dominio",
+    "\\TesteWebMotors\\TesteWebMotors.Dominio\\Services",
+    "\\TesteWebMotors\\TesteWebMotors\\Views",
+    "\\TesteWebMotors\\TesteWebMotors\\Views\\Anuncios"
+  ],
+  "SelectedNode": "\\TesteWebMotors\\TesteWebMotors.Dominio\\Services\\AnuncioService.cs",
+  "PreviewInSolutionExplorer": false
+}

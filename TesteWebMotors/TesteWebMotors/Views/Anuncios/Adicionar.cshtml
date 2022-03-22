@@ -1,0 +1,113 @@
+﻿@model AnuncioWeb
+
+<div class="row">
+    <div class="col">
+        <form method="post" asp-action="AdicionarAnuncio">
+            <div class="row">
+                <div class="col">
+                    <label>
+                        Marca:
+                        <select onchange="BuscaModelo(selectedIndex)" asp-for="Marca" class="form-control">
+                            <option label="-- Selecionar --" value="0"></option>
+                            @{
+                                var lista = (List<AnuncioAPIMakes>)ViewData["AnuncioAPIMakes"];
+                                foreach (var item in lista)
+                                {
+                                    <option label="@item.Name" value="@item.Name"></option>
+                                }
+                            }
+                        </select>
+                    </label>
+                </div>
+
+                <div class="col">
+                    <label>
+                        Modelo:
+                        <select id="modeloAnuncio" onchange="BuscaVersao(selectedIndex)" asp-for="Modelo" class="form-control">
+                            <option label="-- Selecionar --" value="0"></option>
+                        </select>
+
+                    </label>
+                </div>
+
+                <div class="col">
+                    <label>
+                        Versão:
+                        <select id="modeloVersao" asp-for="Versao" class="form-control">
+                            <option label="-- Selecionar --" value="0"></option>
+                        </select>
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        Ano:
+                        <input asp-for="Ano" class="form-control" type="number" autocomplete="off" placeholder="9999" />
+                    </label>
+                </div>
+                <div class="col">
+                    <label>
+                        Quilometragem:
+                        <input asp-for="Quilometragem" class="form-control" type="number" autocomplete="off" />
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label>
+                        Observação:
+                        <textarea cols="300" asp-for="Observacao" class="form-control" type="text"> </textarea>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-outline-info" href="/">Voltar</a>
+                    <input class="btn btn-outline-success" type="submit" value="Adicionar" />
+                    <a class="btn btn-info" href="/Anuncios/Gerenciar">Gerenciar informações de anúncios</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function popularOSelectModelo(dados){
+        $("#modeloAnuncio").html('');
+        var opcao = `<option value='0' label='-- Selecionar --'></option>`;
+        $("#modeloAnuncio").append(opcao);
+        dados.forEach(item => {
+            var opcao = `<option value='${item.Name}' label='${item.Name}'></option>`;
+            $("#modeloAnuncio").append(opcao);
+        });
+        $("#modeloVersao").html('');
+        $("#modeloVersao").append(`<option value='0' label='-- Selecionar --'></option>`);
+    }
+
+    function popularOSelectVersao(dados){
+        $("#modeloVersao").html('');
+        var opcao = `<option value='0' label='-- Selecionar --'></option>`;
+        $("#modeloVersao").append(opcao);
+        dados.forEach(item => {
+            var opcao = `<option value='${item.Name}' label='${item.Name}'></option>`;
+            $("#modeloVersao").append(opcao);
+        });
+    }
+
+    function BuscaModelo(idRecebido) {
+        var url = "https://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=";
+        $.get(url + idRecebido , function(dados){
+            popularOSelectModelo(dados);
+            //mostrarAsImagens(dados);
+        });
+    }
+
+    function BuscaVersao(idRecebido) {
+        var url = "https://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=";
+        $.get(url + idRecebido , function(dados){
+            popularOSelectVersao(dados);
+            //mostrarAsImagens(dados);
+        });
+    }
+
+</script>
