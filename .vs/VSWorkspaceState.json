@@ -1,13 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\TesteWebMotors",
-    "\\TesteWebMotors\\TesteWebMotors",
-    "\\TesteWebMotors\\TesteWebMotors.Dominio",
-    "\\TesteWebMotors\\TesteWebMotors.Dominio\\Services",
-    "\\TesteWebMotors\\TesteWebMotors\\Views",
-    "\\TesteWebMotors\\TesteWebMotors\\Views\\Anuncios"
+    "\\TesteWebMotors"
   ],
-  "SelectedNode": "\\TesteWebMotors\\TesteWebMotors.Dominio\\Services\\AnuncioService.cs",
+  "SelectedNode": "\\TesteWebMotors\\TesteWebMotors.sln",
   "PreviewInSolutionExplorer": false
 }

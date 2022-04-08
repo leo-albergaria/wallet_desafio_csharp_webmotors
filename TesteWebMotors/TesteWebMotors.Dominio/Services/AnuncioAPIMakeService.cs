@@ -15,7 +15,7 @@ namespace TesteWebMotors.Dominio.Services
 
         public AnuncioAPIMakeService(IConfiguration configuration)
         {
-            _urlDaAPI = configuration["API:URL"].ToString();
+            _urlDaAPI = "https://desafioonline.webmotors.com.br/api/OnlineChallenge/"; //configuration["API:URL"].ToString();
             _httpClient = new HttpClient();
         }
 

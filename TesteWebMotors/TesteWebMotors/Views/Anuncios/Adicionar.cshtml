@@ -7,13 +7,13 @@
                 <div class="col">
                     <label>
                         Marca:
-                        <select onchange="BuscaModelo(selectedIndex)" asp-for="Marca" class="form-control">
+                        <select id="marcaAnuncio" onchange="BuscaModelo(this.options[selectedIndex].value)" asp-for="Marca" class="form-control">
                             <option label="-- Selecionar --" value="0"></option>
                             @{
                                 var lista = (List<AnuncioAPIMakes>)ViewData["AnuncioAPIMakes"];
                                 foreach (var item in lista)
                                 {
-                                    <option label="@item.Name" value="@item.Name"></option>
+                                    <option label="@item.Name" value="@item.Id"></option>
                                 }
                             }
                         </select>
@@ -23,7 +23,7 @@
                 <div class="col">
                     <label>
                         Modelo:
-                        <select id="modeloAnuncio" onchange="BuscaVersao(selectedIndex)" asp-for="Modelo" class="form-control">
+                        <select id="modeloAnuncio" onchange="BuscaVersao(this.options[selectedIndex].value)" asp-for="Modelo" class="form-control">
                             <option label="-- Selecionar --" value="0"></option>
                         </select>
 
@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col">
                     <a class="btn btn-outline-info" href="/">Voltar</a>
-                    <input class="btn btn-outline-success" type="submit" value="Adicionar" />
+                    <input class="btn btn-outline-success" type="submit" value="Adicionar" onclick="atribuiLabelEmValue()" />
                     <a class="btn btn-info" href="/Anuncios/Gerenciar">Gerenciar informações de anúncios</a>
                 </div>
             </div>
@@ -77,7 +77,7 @@
         var opcao = `<option value='0' label='-- Selecionar --'></option>`;
         $("#modeloAnuncio").append(opcao);
         dados.forEach(item => {
-            var opcao = `<option value='${item.Name}' label='${item.Name}'></option>`;
+            var opcao = `<option value='${item.ID}' label='${item.Name}'></option>`;
             $("#modeloAnuncio").append(opcao);
         });
         $("#modeloVersao").html('');
@@ -110,4 +110,12 @@
         });
     }
 
+    // atribui o conteúdo de label em value e se ter descrição da marca/modelo em AnuncioWeb (senão seria passado o ID)
+    function atribuiLabelEmValue() {
+        marca = document.getElementById("marcaAnuncio")
+        modelo = document.getElementById("modeloAnuncio")
+        marca.options[marca.selectedIndex].value = $("#marcaAnuncio option:selected").attr("label")
+        modelo.options[modelo.selectedIndex].value = $("#modeloAnuncio option:selected").attr("label")
+    }
+    
 </script>
